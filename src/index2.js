@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+//import ReactDOM from 'react-dom';
 import './index.css';
 import logo from './images/MYtineraryLogo.png';
 import start from './images/circled-right-2.png'

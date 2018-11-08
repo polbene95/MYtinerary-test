@@ -1,4 +1,6 @@
-body, #root {
+body, 
+#root,
+#root > div  {
     margin: 0;
     padding: 0;
     width: 100%;
@@ -9,7 +11,7 @@ body, #root {
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-rows: 25% 30% 45%;
+    grid-template-rows: 25% 25% 50%;
     grid-template-columns: 2.5% 95% 2.5%;
 }
 
@@ -32,8 +34,7 @@ body, #root {
     align-items: center;
 }
 .home-div > .header > .top-header > .profile-div > img {
-    width: 30px;
-    height: 30px;
+    height: 100%;
 
 }
 
@@ -58,6 +59,7 @@ body, #root {
 }
 .home-div > .header > .bot-header > .logo-img {
     width: 100%;
+    height: 100%;
 }
 
 .home-div > .section {
@@ -70,10 +72,12 @@ body, #root {
     font-size: 1.2rem;
 }
 .home-div > .section > .button-img {
-    width: 40%;
+    height: 60%;
 }
 .home-div > .section > p {
     text-align: center;
+    margin: 0;
+    height: 40%;
 }
 
 .home-div > .footer {
