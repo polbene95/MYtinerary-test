@@ -25,7 +25,7 @@ class HomePage extends React.Component {
             </div>
             <div className="section">
                 <p>Find your preftect trip, desinged by insiders who know and love their cities.</p>
-                <img className="button-img" src={start} alt="circled-right button"></img>
+                <a href="/web/cities"><img className="button-img" src={start} alt="circled-right button"></img></a>
             </div>
             <DynamicFooter />
         </div>

@@ -71,8 +71,11 @@ body,
     justify-content: space-evenly;
     font-size: 1.2rem;
 }
-.home-div > .section > .button-img {
+.home-div > .section > a {
     height: 60%;
+}
+.home-div > .section > a> .button-img {
+    height: 100%;
 }
 .home-div > .section > p {
     text-align: center;
