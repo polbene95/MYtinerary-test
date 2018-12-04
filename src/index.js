@@ -3,8 +3,14 @@ import ReactDOM from 'react-dom';
 import { Route, BrowserRouter as Router } from 'react-router-dom'
 import './index2.css';
 import HomePage from './home.js';
-import CitiesPage from './cities'
+import CitiesPage from './cities';
+import { createStore,applyMiddleware } from 'redux'
+import { Provider } from 'react-redux'
+import { rootReducer } from './store/reducers/rootReducer'
+import thunk from 'redux-thunk'
 
+
+const store = createStore(rootReducer, applyMiddleware(thunk))
 
 const routing = (
     <Router>
@@ -17,4 +23,4 @@ const routing = (
     </Router>
   )
 
-  ReactDOM.render(routing, document.getElementById('root'))
+  ReactDOM.render(<Provider store={store}>{routing}</Provider>, document.getElementById('root'))
