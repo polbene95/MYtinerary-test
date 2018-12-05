@@ -5,52 +5,34 @@ import * as  actionCreator  from './store/actions/actions';
 class CitiesList extends React.Component { 
     constructor(props) {
         super(props)
-        console.log(this.props)
         this.state = {
-            allCities: this.props.cities,
-            cities: this.props.cities,
-            inputValue: ""
+            searchValue: "",
         }
     }
     render() {
-
-        
+ 
         return(
-            <div>
-            <div><input value={this.state.inputValue} onChange={this.filterCitiesByInput}></input></div>
-            <div className="cityList">
-                {this.state.cities.map(city => this.createCityNode({name: city.name, src: city.src}))}
-            </div>
+        <React.Fragment>
+        <input value={this.state.searchValue} onChange={ e => this.changeSearchValue(e.target.value)}></input>
+        <button> Click me </button>
+        <div className="cityList">
+            {this.filterCities().map(city => this.createCityNode({name: city.name, src: city.src}))}
         </div>
+        </React.Fragment>
         )
         
         
     }
-
-
-
-    filterCitiesByInput(ev) {
-        this.updateInputValue(ev)
-        let array = this.state.allCities.forEach(city => {
-            if (city.nametoLowerCase().indexOf(this.state.inputValue) !== -1 || 
-            city.country.toLowerCase().indexOf(this.state.inputValue) !== -1 ||
-            this.state.inputValue === "") {
-                return city;
-            }
-        })
-        this.setState({
-            cities: array
-        })
+    changeSearchValue(value) {
+        this.setState({searchValue:value})
+        console.log(this.state.searchValue)
     }
-
-    updateInputValue(event) {
-        this.setState({
-          inputValue: event.target.value
-        });
+    filterCities() {
+        return this.props.cities.filter(city => this.state.searchValue === "" || city.name.toLowerCase().indexOf(this.state.searchValue) !== -1 || city.country.toLowerCase().indexOf(this.state.searchValue) !== -1)
     }
 
     componentDidMount() {
-        this.props.fetchData();
+       this.props.fetchData();
     }
 
     createCityNode(props) {
